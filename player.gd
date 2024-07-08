@@ -2,10 +2,9 @@ extends Node
 
 var reproduciendo = true
 
-
 func activar():
-	$Audio.stream = $Player/Audio/Tracks.tracks[0]
-	#$Audio.play()
+	$Audio.stream = $Player/Audio/Tracks.front()
+	$Audio.play()
 	$Next.visible = true
 	$PlayPause.visible = true
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://dl0kghj4iorjk"]
+[gd_scene load_steps=32 format=3 uid="uid://dl0kghj4iorjk"]
 
 [ext_resource type="Script" path="res://jueguito.gd" id="1_3lter"]
 [ext_resource type="PackedScene" uid="uid://byimhhr2c3f40" path="res://malabarista.tscn" id="2_g2sqt"]
-[ext_resource type="Script" path="res://lanzamientos.gd" id="3_fh45i"]
 [ext_resource type="FontFile" uid="uid://bjxi4yr7se7bi" path="res://Xolonium-Regular.ttf" id="4_rkrb8"]
+[ext_resource type="Script" path="res://camara.gd" id="4_sdesy"]
 [ext_resource type="Texture2D" uid="uid://doqrq03blkbvq" path="res://img/background.png" id="5_21d4l"]
 [ext_resource type="Script" path="res://secuencias.gd" id="6_c04j5"]
 [ext_resource type="Texture2D" uid="uid://qq3s83gp1nvx" path="res://img/fwd.png" id="6_fb41h"]
@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://bhc4r05ukb5yn" path="res://musica/Horse Jumper of Love ＂Ugly Brunette＂ (Audio) [KbgOIeFfONA].mp3" id="19_xdj38"]
 [ext_resource type="AudioStream" uid="uid://c5a1jvylrfufn" path="res://musica/Nirvana - Negative Creep [cdXlXT32ER4].mp3" id="20_bwl6p"]
 [ext_resource type="AudioStream" uid="uid://dtrcaikrowpyu" path="res://musica/Tortoise - Gamera EP (1995) [Full Album] [p-IE0QWRbEQ].mp3" id="21_e1be7"]
+[ext_resource type="Script" path="res://portada.gd" id="28_t2fnk"]
 [ext_resource type="FontFile" uid="uid://ds05rjyma7s3w" path="res://Rockwell-Bold.ttf" id="30_swcxw"]
 
 [node name="Jueguito" type="Control"]
@@ -45,23 +46,18 @@ position = Vector2(566.5, -9.25146)
 scale = Vector2(1.2235, 1.2235)
 texture = ExtResource("5_21d4l")
 
-[node name="Lanzamientos" type="Node" parent="."]
-script = ExtResource("3_fh45i")
-
-[node name="Base" type="Timer" parent="."]
-wait_time = 0.35
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camara" type="Camera2D" parent="."]
 position = Vector2(576, 725)
 limit_bottom = 1452
+script = ExtResource("4_sdesy")
 
-[node name="Secuencias" type="Control" parent="."]
+[node name="Secuencia" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_c04j5")
 
-[node name="Display" type="Label" parent="Secuencias"]
+[node name="Display" type="Label" parent="Secuencia"]
 layout_mode = 0
 offset_left = 84.0
 offset_top = 1342.0
@@ -71,7 +67,7 @@ theme_override_fonts/font = ExtResource("4_rkrb8")
 theme_override_font_sizes/font_size = 64
 text = "3"
 
-[node name="Ingresando" type="Label" parent="Secuencias"]
+[node name="Ingresando" type="Label" parent="Secuencia"]
 layout_mode = 0
 offset_left = 84.0
 offset_top = 1285.0
@@ -129,6 +125,7 @@ track_13 = ExtResource("21_e1be7")
 
 [node name="Portada" type="Node2D" parent="."]
 visible = false
+script = ExtResource("28_t2fnk")
 
 [node name="Boton" type="TextureButton" parent="Portada"]
 offset_left = 368.0
@@ -170,8 +167,7 @@ text = "Secuenciando"
 [node name="Malabarista" parent="." instance=ExtResource("2_g2sqt")]
 position = Vector2(576, 1078)
 
-[connection signal="timeout" from="Base" to="." method="_on_base_timeout"]
-[connection signal="zoom" from="Secuencias" to="." method="_on_secuencias_zoom"]
+[connection signal="zoom" from="Secuencia" to="." method="_on_secuencias_zoom"]
 [connection signal="pressed" from="Player/Next" to="Player" method="_on_next_pressed"]
 [connection signal="pressed" from="Player/PlayPause" to="Player" method="_on_play_pause_pressed"]
 [connection signal="finished" from="Player/Audio" to="Player/Audio" method="_on_finished"]

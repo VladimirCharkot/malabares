@@ -4,9 +4,17 @@ extends Node2D
 @onready var mano_activa = $ManoDer
 @onready var mano_pasiva = $ManoIzq
 
-signal lanzada
+var secuencia = []
+var loopeando = false
 
-var step = 0
+# Si la anterior fue sincro hay que esperar un tiempo más
+var did_sincro = false
+
+var freestyle = true
+var lanzamiento = 5
+
+signal lanzada
+signal comando_ejecutado
 
 # Mover la mano activa hacia el centro, lanzar, volver
 func simple(mano: Mano, lanzamiento: Vector2):
@@ -21,8 +29,6 @@ func simple(mano: Mano, lanzamiento: Vector2):
 	lanzada.emit()
 	
 func multiplex(mano: Mano, lanzamientos):
-	print("Multiplex recibiendo:")
-	print(lanzamientos)
 	var dx = -mano.position.x/3		# Un tercio de camino desde reposo hasta centro
 	var dy = 30
 	await mover_mano(mano, Vector2(dx/2, dy), 0.2)
@@ -44,27 +50,6 @@ func sincro(l1, l2):
 	else:
 		simple(mano_pasiva, l2)
 	await lanzada
-#func mover_der(hacia: Vector2, duracion: float):
-	#mover_mano($ManoDer, hacia, duracion, null)
-#
-#func mover_izq(hacia: Vector2, duracion: float):
-	#mover_mano($ManoIzq, hacia, duracion, null)
-	
-	
-#func lanzar_der(desde: Vector2, f: Vector2):
-	#lanzar($ManoDer, desde, f)
-	#
-#func lanzar_izq(desde: Vector2, f: Vector2):
-	#lanzar($ManoIzq, desde, f)
-	
-#func lanzar(mano: Node2D, desde: Vector2, f: Vector2):
-	#mover_mano(mano, desde - mano.position, 0.4, func(): mano.lanzar(f))
-
-#func mover_y_lanzar(mano: Node2D, desde: Vector2, t: float, f: Vector2 = Vector2.ZERO):
-	#if f.length():
-		#mover_mano(mano, desde - mano.position, t, func(): mano.lanzar(f))
-	#else:
-		#mover_mano(mano, desde - mano.position, t, null)
 	
 
 func mover_mano(mano: Node2D, delta: Vector2, duracion: float):
@@ -74,6 +59,20 @@ func mover_mano(mano: Node2D, delta: Vector2, duracion: float):
 	tween.tween_callback(mano.desocupar)
 	await tween.finished
 	
+
+func _input(event):
+	
+	if freestyle and event is InputEventKey and event.pressed:
+				
+		if event.keycode == KEY_LEFT:
+			var l = $Lanzamientos.lanzamiento(lanzamiento, 240)
+			await simple($ManoIzq, l)
+			swap()
+		
+		if event.keycode == KEY_RIGHT:
+			var l = $Lanzamientos.lanzamiento(lanzamiento, 240)
+			await simple($ManoDer, l)
+			swap()
 
 
 func _process(delta):
@@ -109,16 +108,54 @@ func swap():
 	mano_activa = $ManoDer if mano_activa == $ManoIzq else $ManoIzq
 	mano_pasiva = $ManoDer if mano_activa == $ManoIzq else $ManoIzq
 
-func _on_mano_der_lanzamiento_efectuado(mano, objeto):
-	pass
-	#print("Lanzamiento der")
-	#$ManoIzq.buscando = objeto
+func encolar(comando):
+	secuencia.push_back(comando)
 
-func _on_mano_izq_lanzamiento_efectuado(mano, objeto):
-	pass
-	#print("Izquierda lanzó ", objeto)
-	#$ManoDer.buscando = objeto
+func _on_base_timeout():
+	if did_sincro: 
+		did_sincro = false
+		return 
+	var comando = secuencia.pop_front()
+	if comando:
+		delegar(comando)
+		swap()
+	if loopeando:
+		secuencia.push_back(comando)
+		
+# Recibe un frame y delega la acción al malabarista
+func delegar(frame):
+	
+	if frame["tipo"] == "simple":
+		var l = $Lanzamientos.traducir(frame["lanz"])
+		#var l = $Lanzamientos.lanzamiento(int(frame["lanz"]), 260)
+		await simple(mano_activa, l)
 
+	if frame["tipo"] == "multiplex":
+		var ls = frame["lanz"].map(func (l): return $Lanzamientos.traducir(l))
+		await multiplex(mano_activa, ls)
+
+	if frame["tipo"] == "sincro":
+		var m_activa = frame["lanz"][0]
+		var m_inactiva = frame["lanz"][1]
+		did_sincro = true
+		await sincro(
+			$Lanzamientos.traducir(m_activa["lanz"]), 
+			$Lanzamientos.traducir(m_inactiva["lanz"])
+		)
+		
+	comando_ejecutado.emit()
+
+func aparecer():
+	var t = create_tween() 
+	t.tween_property($Malabarista, "modulate", Color.WHITE, 1)
+	$Base.start()
+	
+
+func set_secuenciando(on: bool):
+	if on:
+		$Base.start()
+	else:
+		$Base.stop()
 
 func _on_area_2d_mouse_entered():
 	print("tuvieja")

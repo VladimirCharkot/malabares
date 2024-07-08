@@ -14,8 +14,8 @@ func vi(t, dx):
 func lanzamiento(n, dx):
 	n = int(n)
 	var t = Params.dta + (n-1) * Params.dt
-	print("Calculando con n=", n, " y dx=", dx, " :: t=", t)
-	print(vi(t, dx))
+	#print("Calculando lanzamineto con n=", n, " y dx=", dx, " :: t=", t)
+	#print(vi(t, dx))
 	return vi(t, dx)
 
 var siteswap = {

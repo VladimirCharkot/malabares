@@ -5,8 +5,9 @@ signal zoom(level)
 var secuencia = []
 
 var teclas_numeros = [KEY_0, KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9]
-#var secuencia_string = "5555(6x4)(6x4)(6x4)(6x4)(4x6x)(4x6x)6456456456456636637447447537536756167561"
-var secuencia_string = "5"
+#var secuencia_string = "(6x4)(6x4)(6x4)(6x4)(4x6x)(4x6x)6456456456456636637447447537536756167561"
+var secuencia_string = "(6x4)(6x4)"
+#var secuencia_string = "5"
 var secuencia_ingresada = ""
 var secuenciando = false
 var i_secuencia = 0
@@ -73,6 +74,11 @@ func step():
 	var frame = secuencia[i_secuencia]
 	i_secuencia += 1
 	return frame
+	
+func next():
+	if secuencia and secuenciando:
+		return step()
+	return null
 
 func stringear_secuencia(secuencia):
 	var stringueada = ""

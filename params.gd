@@ -11,7 +11,7 @@ var labelFactor = false
 
 var dx = 250
 
-var calibracion = 'calculada'
+var calibracion = 'manual'
 
 func manual(is_manual: bool):
 	if is_manual:
