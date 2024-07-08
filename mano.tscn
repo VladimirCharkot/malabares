@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://csn0cjt535v32"]
+
+[ext_resource type="Script" path="res://mano.gd" id="1_cjgmn"]
+[ext_resource type="Texture2D" uid="uid://o3t6ueg1fe43" path="res://img/mano2.png" id="2_xjtf4"]
+[ext_resource type="Texture2D" uid="uid://vp3p5gbyrjt3" path="res://img/pelota.png" id="3_3qsvj"]
+[ext_resource type="Texture2D" uid="uid://b2f3aj6arwa1s" path="res://img/dedos.png" id="4_hig0f"]
+[ext_resource type="Texture2D" uid="uid://cwq2lexudpjoi" path="res://img/palma.png" id="5_u8kiu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7gy0o"]
+radius = 131.015
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8jgnr"]
+
+[node name="Mano" type="Node2D"]
+position = Vector2(322, 529)
+script = ExtResource("1_cjgmn")
+
+[node name="Manito" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_xjtf4")
+
+[node name="Influencia" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Influencia"]
+shape = SubResource("CircleShape2D_7gy0o")
+
+[node name="Alcance" type="Area2D" parent="."]
+modulate = Color(0, 0.760784, 0.764706, 1)
+show_behind_parent = true
+
+[node name="Shape" type="CollisionShape2D" parent="Alcance"]
+shape = SubResource("CircleShape2D_8jgnr")
+debug_color = Color(0.898039, 0.133333, 0.701961, 0.419608)
+
+[node name="Marcadores" type="Node2D" parent="."]
+position = Vector2(95, 67)
+
+[node name="M1" type="Sprite2D" parent="Marcadores"]
+visible = false
+position = Vector2(36, 3)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_3qsvj")
+
+[node name="M2" type="Sprite2D" parent="Marcadores"]
+visible = false
+position = Vector2(35, 14)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_3qsvj")
+
+[node name="M3" type="Sprite2D" parent="Marcadores"]
+visible = false
+position = Vector2(29, 24)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_3qsvj")
+
+[node name="M4" type="Sprite2D" parent="Marcadores"]
+visible = false
+position = Vector2(19, 30)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_3qsvj")
+
+[node name="M5" type="Sprite2D" parent="Marcadores"]
+visible = false
+position = Vector2(6, 31)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_3qsvj")
+
+[node name="Reposo" type="Marker2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 73.0
+offset_top = 44.0
+offset_right = 113.0
+offset_bottom = 67.0
+
+[node name="Palma" type="Sprite2D" parent="."]
+texture = ExtResource("5_u8kiu")
+
+[node name="Dedos" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("4_hig0f")
+
+[connection signal="area_entered" from="Influencia" to="." method="_on_influencia"]
+[connection signal="area_exited" from="Influencia" to="." method="_off_influencia"]
+[connection signal="mouse_entered" from="Influencia" to="." method="_on_influencia_mouse_entered"]
+[connection signal="mouse_exited" from="Influencia" to="." method="_on_influencia_mouse_exited"]
+[connection signal="area_entered" from="Alcance" to="." method="_on_alcance"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xql47fjwkv7x"
+path="res://.godot/imported/Waiting Room [C3LXkdpHNOQ].mp3-a7de17a0df4f37b753f29307a572c0a7.mp3str"
+
+[deps]
+
+source_file="res://musica/Waiting Room [C3LXkdpHNOQ].mp3"
+dest_files=["res://.godot/imported/Waiting Room [C3LXkdpHNOQ].mp3-a7de17a0df4f37b753f29307a572c0a7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

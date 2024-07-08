@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d05aydsjqilwk"
+path="res://.godot/imported/Break [Evf1z4UA7A8].mp3-d2f38f3215d85070817256d59f4db047.mp3str"
+
+[deps]
+
+source_file="res://musica/Break [Evf1z4UA7A8].mp3"
+dest_files=["res://.godot/imported/Break [Evf1z4UA7A8].mp3-d2f38f3215d85070817256d59f4db047.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://byimhhr2c3f40"]
+
+[ext_resource type="Script" path="res://malabarista.gd" id="1_0qsb4"]
+[ext_resource type="PackedScene" uid="uid://dp3ydgpuoroxl" path="res://pelota.tscn" id="2_pf8ms"]
+[ext_resource type="Texture2D" uid="uid://d3knhk582qqsy" path="res://img/fere.png" id="3_2kx18"]
+[ext_resource type="PackedScene" uid="uid://csn0cjt535v32" path="res://mano.tscn" id="4_a0o1e"]
+[ext_resource type="Texture2D" uid="uid://cv3apsy2wr6ea" path="res://img/chango.png" id="4_jw12f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_da2at"]
+radius = 312.578
+
+[node name="Malabarista" type="Node2D"]
+position = Vector2(576, 738)
+script = ExtResource("1_0qsb4")
+juguete = ExtResource("2_pf8ms")
+
+[node name="Carita" type="Sprite2D" parent="."]
+position = Vector2(0, 7.375)
+scale = Vector2(0.151564, 0.151564)
+texture = ExtResource("3_2kx18")
+
+[node name="Cuerpo" type="Sprite2D" parent="."]
+position = Vector2(0, 39)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_jw12f")
+
+[node name="ManoDer" parent="." instance=ExtResource("4_a0o1e")]
+position = Vector2(150, 78)
+scale = Vector2(0.6, 0.6)
+
+[node name="ManoIzq" parent="." instance=ExtResource("4_a0o1e")]
+position = Vector2(-150, 78)
+scale = Vector2(0.6, 0.6)
+lado = "izquierda"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_da2at")
+
+[connection signal="lanzamiento_efectuado" from="ManoDer" to="." method="_on_mano_der_lanzamiento_efectuado"]
+[connection signal="lanzamiento_efectuado" from="ManoIzq" to="." method="_on_mano_izq_lanzamiento_efectuado"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

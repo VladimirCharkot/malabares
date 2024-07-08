@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://k3ykgr8uihso"
+path="res://.godot/imported/Fugazi - I'm so tired (8-bit) [qobtiBq0zAI].mp3-18f5e06821703b706c1eda14781b9594.mp3str"
+
+[deps]
+
+source_file="res://musica/Fugazi - I'm so tired (8-bit) [qobtiBq0zAI].mp3"
+dest_files=["res://.godot/imported/Fugazi - I'm so tired (8-bit) [qobtiBq0zAI].mp3-18f5e06821703b706c1eda14781b9594.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

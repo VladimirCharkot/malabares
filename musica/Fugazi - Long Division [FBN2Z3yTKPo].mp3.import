@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnot2lem8wodm"
+path="res://.godot/imported/Fugazi - Long Division [FBN2Z3yTKPo].mp3-50b75457e05fbbf1234643dd7cf14e0d.mp3str"
+
+[deps]
+
+source_file="res://musica/Fugazi - Long Division [FBN2Z3yTKPo].mp3"
+dest_files=["res://.godot/imported/Fugazi - Long Division [FBN2Z3yTKPo].mp3-50b75457e05fbbf1234643dd7cf14e0d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

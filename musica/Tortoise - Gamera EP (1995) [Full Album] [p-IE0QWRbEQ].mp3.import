@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtrcaikrowpyu"
+path="res://.godot/imported/Tortoise - Gamera EP (1995) [Full Album] [p-IE0QWRbEQ].mp3-3068509de026e76f7f4a68e60158269c.mp3str"
+
+[deps]
+
+source_file="res://musica/Tortoise - Gamera EP (1995) [Full Album] [p-IE0QWRbEQ].mp3"
+dest_files=["res://.godot/imported/Tortoise - Gamera EP (1995) [Full Album] [p-IE0QWRbEQ].mp3-3068509de026e76f7f4a68e60158269c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

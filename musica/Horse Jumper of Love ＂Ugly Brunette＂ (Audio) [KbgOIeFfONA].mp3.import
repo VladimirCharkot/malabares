@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhc4r05ukb5yn"
+path="res://.godot/imported/Horse Jumper of Love ＂Ugly Brunette＂ (Audio) [KbgOIeFfONA].mp3-98fff098c21b0d897373d55cae73c46e.mp3str"
+
+[deps]
+
+source_file="res://musica/Horse Jumper of Love ＂Ugly Brunette＂ (Audio) [KbgOIeFfONA].mp3"
+dest_files=["res://.godot/imported/Horse Jumper of Love ＂Ugly Brunette＂ (Audio) [KbgOIeFfONA].mp3-98fff098c21b0d897373d55cae73c46e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

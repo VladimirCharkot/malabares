@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://da6i1ljoglvl5"
+path="res://.godot/imported/Dream, Ivory - Welcome and Goodbye [4J0eu55kYWY].mp3-2a03387f1245eef44977fbb64e15b8e3.mp3str"
+
+[deps]
+
+source_file="res://musica/Dream, Ivory - Welcome and Goodbye [4J0eu55kYWY].mp3"
+dest_files=["res://.godot/imported/Dream, Ivory - Welcome and Goodbye [4J0eu55kYWY].mp3-2a03387f1245eef44977fbb64e15b8e3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

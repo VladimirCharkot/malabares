@@ -1,0 +1,179 @@
+[gd_scene load_steps=31 format=3 uid="uid://dl0kghj4iorjk"]
+
+[ext_resource type="Script" path="res://jueguito.gd" id="1_3lter"]
+[ext_resource type="PackedScene" uid="uid://byimhhr2c3f40" path="res://malabarista.tscn" id="2_g2sqt"]
+[ext_resource type="Script" path="res://lanzamientos.gd" id="3_fh45i"]
+[ext_resource type="FontFile" uid="uid://bjxi4yr7se7bi" path="res://Xolonium-Regular.ttf" id="4_rkrb8"]
+[ext_resource type="Texture2D" uid="uid://doqrq03blkbvq" path="res://img/background.png" id="5_21d4l"]
+[ext_resource type="Script" path="res://secuencias.gd" id="6_c04j5"]
+[ext_resource type="Texture2D" uid="uid://qq3s83gp1nvx" path="res://img/fwd.png" id="6_fb41h"]
+[ext_resource type="Script" path="res://playpause.gd" id="6_i42wi"]
+[ext_resource type="AudioStream" uid="uid://k3ykgr8uihso" path="res://musica/Fugazi - I'm so tired (8-bit) [qobtiBq0zAI].mp3" id="6_kkd7d"]
+[ext_resource type="Script" path="res://player.gd" id="6_qqcq4"]
+[ext_resource type="Texture2D" uid="uid://b80nb2wqluili" path="res://img/play.png" id="7_0fq47"]
+[ext_resource type="Script" path="res://audio.gd" id="7_4pcx5"]
+[ext_resource type="Texture2D" uid="uid://b2a12euol4gup" path="res://img/boton.png" id="7_5imde"]
+[ext_resource type="Script" path="res://tracks.gd" id="7_wqmjd"]
+[ext_resource type="Texture2D" uid="uid://dy8ovg3l1y04o" path="res://img/pause.png" id="8_7ktr5"]
+[ext_resource type="Texture2D" uid="uid://rv4glle5e7xy" path="res://img/titulo.png" id="8_38lwi"]
+[ext_resource type="AudioStream" uid="uid://01gvag6est6f" path="res://musica/Corpse Pose [DvKaqmiNjhA].mp3" id="8_as4c1"]
+[ext_resource type="AudioStream" uid="uid://da6i1ljoglvl5" path="res://musica/Dream, Ivory - Welcome and Goodbye [4J0eu55kYWY].mp3" id="10_858ec"]
+[ext_resource type="AudioStream" uid="uid://d05aydsjqilwk" path="res://musica/Break [Evf1z4UA7A8].mp3" id="11_aj4l8"]
+[ext_resource type="AudioStream" uid="uid://bv3sxvjdnolt4" path="res://musica/Eiafuawn – No More Like That [uTNntyp7778].mp3" id="12_gbdrf"]
+[ext_resource type="AudioStream" uid="uid://b1jhovuts2jd1" path="res://musica/Nirvana - Blew [7J37mp0JJCE].mp3" id="13_xfj43"]
+[ext_resource type="AudioStream" uid="uid://dqdkx3fxpr2m1" path="res://musica/Duster - Topical Solution [M23DEQDcnT0].mp3" id="14_hbrpy"]
+[ext_resource type="AudioStream" uid="uid://dre4sbc7rsf6x" path="res://musica/So Much For The Fourth Wall [JDrXe2-YEhY].mp3" id="15_on5eg"]
+[ext_resource type="AudioStream" uid="uid://ct6l5g8xfnamg" path="res://musica/Pinegrove - Need 2 (official lyric video) [zE_rK8PX83Q].mp3" id="16_4fthb"]
+[ext_resource type="AudioStream" uid="uid://xql47fjwkv7x" path="res://musica/Waiting Room [C3LXkdpHNOQ].mp3" id="17_xn8ol"]
+[ext_resource type="AudioStream" uid="uid://bnot2lem8wodm" path="res://musica/Fugazi - Long Division [FBN2Z3yTKPo].mp3" id="18_7mf4w"]
+[ext_resource type="AudioStream" uid="uid://bhc4r05ukb5yn" path="res://musica/Horse Jumper of Love ＂Ugly Brunette＂ (Audio) [KbgOIeFfONA].mp3" id="19_xdj38"]
+[ext_resource type="AudioStream" uid="uid://c5a1jvylrfufn" path="res://musica/Nirvana - Negative Creep [cdXlXT32ER4].mp3" id="20_bwl6p"]
+[ext_resource type="AudioStream" uid="uid://dtrcaikrowpyu" path="res://musica/Tortoise - Gamera EP (1995) [Full Album] [p-IE0QWRbEQ].mp3" id="21_e1be7"]
+[ext_resource type="FontFile" uid="uid://ds05rjyma7s3w" path="res://Rockwell-Bold.ttf" id="30_swcxw"]
+
+[node name="Jueguito" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3lter")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(566.5, -9.25146)
+scale = Vector2(1.2235, 1.2235)
+texture = ExtResource("5_21d4l")
+
+[node name="Lanzamientos" type="Node" parent="."]
+script = ExtResource("3_fh45i")
+
+[node name="Base" type="Timer" parent="."]
+wait_time = 0.35
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 725)
+limit_bottom = 1452
+
+[node name="Secuencias" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_c04j5")
+
+[node name="Display" type="Label" parent="Secuencias"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 1342.0
+offset_right = 129.0
+offset_bottom = 1420.0
+theme_override_fonts/font = ExtResource("4_rkrb8")
+theme_override_font_sizes/font_size = 64
+text = "3"
+
+[node name="Ingresando" type="Label" parent="Secuencias"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 1285.0
+offset_right = 129.0
+offset_bottom = 1363.0
+theme_override_colors/font_color = Color(0.388235, 0.65098, 0.388235, 1)
+theme_override_fonts/font = ExtResource("4_rkrb8")
+theme_override_font_sizes/font_size = 42
+
+[node name="Player" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("6_qqcq4")
+
+[node name="Next" type="TextureButton" parent="Player"]
+visible = false
+layout_mode = 0
+offset_left = 163.0
+offset_top = 24.0
+offset_right = 263.0
+offset_bottom = 124.0
+texture_normal = ExtResource("6_fb41h")
+
+[node name="PlayPause" type="TextureButton" parent="Player"]
+visible = false
+layout_mode = 0
+offset_left = 38.0
+offset_top = 24.0
+offset_right = 138.0
+offset_bottom = 124.0
+texture_normal = ExtResource("8_7ktr5")
+script = ExtResource("6_i42wi")
+textura_play = ExtResource("7_0fq47")
+textura_pause = ExtResource("8_7ktr5")
+
+[node name="Audio" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("6_kkd7d")
+script = ExtResource("7_4pcx5")
+
+[node name="Tracks" type="Node" parent="Player/Audio"]
+script = ExtResource("7_wqmjd")
+track_portada = ExtResource("6_kkd7d")
+track_1 = ExtResource("8_as4c1")
+track_2 = ExtResource("10_858ec")
+track_3 = ExtResource("11_aj4l8")
+track_4 = ExtResource("12_gbdrf")
+track_5 = ExtResource("13_xfj43")
+track_6 = ExtResource("14_hbrpy")
+track_7 = ExtResource("15_on5eg")
+track_8 = ExtResource("16_4fthb")
+track_9 = ExtResource("17_xn8ol")
+track_10 = ExtResource("18_7mf4w")
+track_11 = ExtResource("19_xdj38")
+track_12 = ExtResource("20_bwl6p")
+track_13 = ExtResource("21_e1be7")
+
+[node name="Portada" type="Node2D" parent="."]
+visible = false
+
+[node name="Boton" type="TextureButton" parent="Portada"]
+offset_left = 368.0
+offset_top = 931.0
+offset_right = 782.0
+offset_bottom = 1098.0
+texture_normal = ExtResource("7_5imde")
+
+[node name="Titulo" type="Sprite2D" parent="Portada"]
+position = Vector2(573, 374)
+scale = Vector2(1.28, 1.28)
+texture = ExtResource("8_38lwi")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Modo" type="CheckButton" parent="Control"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 63.0
+offset_bottom = 45.0
+scale = Vector2(1.76, 1.76)
+focus_mode = 0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 17.0
+offset_right = 343.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("30_swcxw")
+theme_override_font_sizes/font_size = 36
+text = "Secuenciando"
+
+[node name="Malabarista" parent="." instance=ExtResource("2_g2sqt")]
+position = Vector2(576, 1078)
+
+[connection signal="timeout" from="Base" to="." method="_on_base_timeout"]
+[connection signal="zoom" from="Secuencias" to="." method="_on_secuencias_zoom"]
+[connection signal="pressed" from="Player/Next" to="Player" method="_on_next_pressed"]
+[connection signal="pressed" from="Player/PlayPause" to="Player" method="_on_play_pause_pressed"]
+[connection signal="finished" from="Player/Audio" to="Player/Audio" method="_on_finished"]
+[connection signal="pressed" from="Portada/Boton" to="." method="_on_boton_pressed"]
+[connection signal="toggled" from="Control/Modo" to="." method="_on_modo_toggled"]

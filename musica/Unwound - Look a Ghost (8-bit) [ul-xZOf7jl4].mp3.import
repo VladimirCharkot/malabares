@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddoij5rlq0qns"
+path="res://.godot/imported/Unwound - Look a Ghost (8-bit) [ul-xZOf7jl4].mp3-c761c9b3bcb944e44f73572ae2c6c0c3.mp3str"
+
+[deps]
+
+source_file="res://musica/Unwound - Look a Ghost (8-bit) [ul-xZOf7jl4].mp3"
+dest_files=["res://.godot/imported/Unwound - Look a Ghost (8-bit) [ul-xZOf7jl4].mp3-c761c9b3bcb944e44f73572ae2c6c0c3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

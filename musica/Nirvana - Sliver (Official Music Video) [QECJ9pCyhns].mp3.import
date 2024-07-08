@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buqxeatb4dgdy"
+path="res://.godot/imported/Nirvana - Sliver (Official Music Video) [QECJ9pCyhns].mp3-af81c1e27151560926f2edd3b86b3d4b.mp3str"
+
+[deps]
+
+source_file="res://musica/Nirvana - Sliver (Official Music Video) [QECJ9pCyhns].mp3"
+dest_files=["res://.godot/imported/Nirvana - Sliver (Official Music Video) [QECJ9pCyhns].mp3-af81c1e27151560926f2edd3b86b3d4b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
